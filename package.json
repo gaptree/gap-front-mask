@@ -1,0 +1,22 @@
+{
+  "name": "gap-front-mask",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://project.tecposter.cn/diffusion/99/gap-front-mask.git",
+  "author": "zhanjh <zhanjh@126.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-jest": "^22.0.6",
+    "babel-preset-env": "^1.6.1",
+    "regenerator-runtime": "^0.11.1"
+  },
+  "scripts": {
+    "test": "npm run jest && npm run eslint",
+    "jest": "jest",
+    "eslint": "eslint ."
+  },
+  "dependencies": {
+    "gap-front-s": "^1.0.2"
+  }
+}
