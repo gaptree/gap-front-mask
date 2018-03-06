@@ -1,6 +1,7 @@
 $mask-background: rgba(44, 56, 71, .66);
 $pop-shadow-color: rgba(44, 56, 71, .5);
 $pop-background: #fff;
+$pop-margin: 78px auto 0;
 
 .gap-mask-outer {
     border: 0;
@@ -29,16 +30,27 @@ $pop-background: #fff;
         border-radius: 3px;
         box-shadow: 0 2px 8px 0 $pop-shadow-color;
         height: auto;
-        left: 50%;
+        left: 0;
+        margin: $pop-margin;
         position: absolute;
-        top: 100px;
-        width: 700px;
+        right: 0;
+        width: 90%;
         z-index: 77;
 
         input,
         select,
         textarea {
             border-radius: 2px;
+        }
+    }
+}
+
+@media screen and (min-width: 40rem) {
+    .gap-mask {
+
+        .pop {
+            margin-top: 100px;
+            width: 700px;
         }
     }
 }

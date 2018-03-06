@@ -58,7 +58,6 @@ export class Mask {
         this.ctn.allElem((query || '') + '.pop')
             .map(elem => {
                 elem.show();
-                elem.style.marginLeft = (-elem.offsetWidth / 2) + 'px';
                 elem.animateCss('pulse');
             });
     }
