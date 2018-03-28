@@ -10,8 +10,6 @@ export class Mask {
             throw new Error('ctn is not HTMLElement');
         }
 
-        this.outer = oneElem('#gap-mask-outer');
-
         this.ctn = ctn;
         this.ctn.addClass('gap-mask');
         this.ctn.removeClass('hide');
@@ -38,6 +36,11 @@ export class Mask {
     }
 
     getOuter() {
+        if (this.outer) {
+            return this.outer;
+        }
+
+        this.outer = oneElem('#gap-mask-outer');
         if (this.outer) {
             return this.outer;
         }
