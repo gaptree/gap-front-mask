@@ -1,4 +1,4 @@
-import {oneElem} from 'gap-front-s';
+import {oneElem} from 'gap-front-web';
 
 export class Mask {
     constructor(ctn) {
