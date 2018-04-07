@@ -1,67 +1,78 @@
-import {oneElem} from 'gap-front-web';
+import {createElem, oneElem} from 'gap-front-web';
 
 export class Mask {
-    constructor(ctn) {
-        if (typeof ctn === 'string') {
-            ctn = oneElem(ctn);
+    constructor() {
+        if (!oneElem('.gap-mask-outer')) {
+            this.initMask();
         }
 
-        if (!(ctn instanceof HTMLElement)) {
-            throw new Error('ctn is not HTMLElement');
-        }
-
-        this.ctn = ctn;
-        this.ctn.addClass('gap-mask');
-        this.ctn.removeClass('hide');
-
-        this.outer = this.getOuter();
-        this.outer.appendChild(this.ctn);
-
-        this.reg();
+        this.outerElem = this.outerElem || oneElem('.gap-mask-outer');
+        this.maskElem = this.maskElem || oneElem('.gap-mask');
+        this.popDict = {};
     }
 
-    reg() {
-        if (this.ctn.getAttribute('data-hidemode') === 'auto') {
-            this.ctn.on('click', e => {
-                if (e.target == this.ctn) {
-                    this.outer.hide();
-                }
-            });
-        }
+    initMask() {
+        const maskElem = createElem('div');
+        const outerElem = createElem('div');
+
+        maskElem.addClass('gap-mask');
+        outerElem.addClass('gap-mask-outer');
+        outerElem.hide();
+        outerElem.appendChild(maskElem);
+        document.body.appendChild(outerElem);
+
+        this.maskElem = maskElem;
+        this.outerElem = outerElem;
     }
 
-    hide() {
+    hideMask() {
         // require https://daneden.github.io/animate.css/
-        this.getOuter().fadeOut();
+        this.outerElem.fadeOut();
     }
 
-    getOuter() {
-        if (this.outer) {
-            return this.outer;
-        }
-
-        this.outer = oneElem('#gap-mask-outer');
-        if (this.outer) {
-            return this.outer;
-        }
-
-        this.outer = document.createElement('div');
-        this.outer.id = 'gap-mask-outer';
-        this.outer.className = 'gap-mask-outer';
-
-        document.body.appendChild(this.outer);
-        this.outer.hide();
-
-        return this.outer;
+    setAutoHide() {
+        this.maskElem.on('click', e => {
+            if (e.target == this.maskElem) {
+                this.outerElem.hide();
+            }
+        });
     }
 
-    pop(query) {
-        this.getOuter().show();
-        this.ctn.allElem('.pop').map(elem => elem.hide());
-        this.ctn.allElem((query || '') + '.pop')
-            .map(elem => {
-                elem.show();
-                elem.animateCss('pulse');
-            });
+    addPop(key, elem) {
+        if (this.popDict.hasOwnProperty(key)) {
+            throw new Error(key + ' duplicated');
+        }
+
+        elem.addClass('pop');
+        elem.hide();
+        this.maskElem.appendChild(elem);
+
+        this.popDict[key] = elem;
+    }
+
+    showPop(key) {
+        this.hideCurrentPop();
+        this._currentPop = this.popDict[key];
+        this.showCurrentPop();
+    }
+
+    hidePop(key) {
+        this._currentPop = this.popDict[key];
+        this.hideCurrentPop();
+    }
+
+    hideCurrentPop() {
+        if (this._currentPop) {
+            this._currentPop.hide();
+            this._currentPop.removeClass('animated pulse');
+        }
+    }
+
+    showCurrentPop() {
+        if (this._currentPop) {
+            this.outerElem.show();
+            this._currentPop.show();
+            this._currentPop.animateCss('pulse');
+        }
     }
 }

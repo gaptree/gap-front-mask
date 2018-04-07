@@ -1377,9 +1377,21 @@ function-bind@^1.0.2, function-bind@^1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/function-bind/-/function-bind-1.1.1.tgz#a56899d3ea3c9bab874bb9773b7c5ede92f4895d"
 
-gap-front-web@^1.0.4:
+gap-front-event@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/gap-front-event/-/gap-front-event-1.0.2.tgz#40e34baaec5736845ecfdac8d9a53aad5f5b0613"
+
+gap-front-view@^1.0.4:
   version "1.0.4"
-  resolved "https://registry.yarnpkg.com/gap-front-web/-/gap-front-web-1.0.4.tgz#bbe08b084cbd3e2a1c60a1a3a52ecf8a8f48aa06"
+  resolved "https://registry.yarnpkg.com/gap-front-view/-/gap-front-view-1.0.4.tgz#209980ffa8f152766bbd35353b1946f36acdae06"
+  dependencies:
+    gap-front-web "^1.0.6"
+
+gap-front-web@^1.0.6, gap-front-web@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/gap-front-web/-/gap-front-web-1.1.1.tgz#717b6caf7ac4eb5e35c511ec46eeea52f547ada4"
+  dependencies:
+    gap-front-event "^1.0.2"
 
 gauge@~2.7.3:
   version "2.7.4"

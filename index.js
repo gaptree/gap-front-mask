@@ -1,1 +1,2 @@
-export {Mask} from './js/Mask.js';
+export {gapMask} from './js/gapMask.js';
+export {Pop} from './js/Pop.js';
