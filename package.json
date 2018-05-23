@@ -1,10 +1,6 @@
 {
   "name": "gap-front-mask",
-<<<<<<< HEAD
   "version": "4.0.1",
-=======
-  "version": "3.0.2",
->>>>>>> 794af4fd348f82fd7f0d1ac2d622a9675a0501c4
   "main": "index.js",
   "repository": "https://project.tecposter.cn/diffusion/99/gap-front-mask.git",
   "author": "zhanjh <zhanjh@126.com>",
