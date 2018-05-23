@@ -1,23 +1,28 @@
 import {View} from 'gap-front-view';
-import {gapMask} from './gapMask.js';
+import {Mask} from './Mask';
 
 export class Pop extends View {
     static get tag() { return 'div'; }
 
+    get mask() {
+        this._mask = this._mask || new Mask();
+        return this._mask;
+    }
+
     showPop() {
         if (!this._isPoped) {
-            gapMask.addPop(this.id, this.ctn);
+            this.mask.addPop(this.id, this.ctn);
             this._isPoped = true;
         }
 
-        gapMask.showPop(this.id);
+        this.mask.showPop(this.id);
     }
 
     hidePop() {
-        gapMask.hidePop(this.id);
+        this.mask.hidePop(this.id);
     }
 
     hideMask() {
-        gapMask.hideMask();
+        this.mask.hideMask();
     }
 }
