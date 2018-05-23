@@ -1381,13 +1381,23 @@ gap-front-event@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/gap-front-event/-/gap-front-event-1.0.2.tgz#40e34baaec5736845ecfdac8d9a53aad5f5b0613"
 
-gap-front-view@^1.0.4:
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/gap-front-view/-/gap-front-view-1.0.4.tgz#209980ffa8f152766bbd35353b1946f36acdae06"
+gap-front-event@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/gap-front-event/-/gap-front-event-2.0.0.tgz#1afd71f5bbb0d94a4efd350424a708cd8b7b4f52"
+
+gap-front-view@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/gap-front-view/-/gap-front-view-2.0.0.tgz#11f18bbc534209402a401a2a49986a356013ed78"
   dependencies:
     gap-front-web "^1.0.6"
 
-gap-front-web@^1.0.6, gap-front-web@^1.1.1:
+gap-front-web@^1.0.6:
+  version "1.2.3"
+  resolved "https://registry.yarnpkg.com/gap-front-web/-/gap-front-web-1.2.3.tgz#eeed4dbc7fae224cb9edc4eacb05b48c2d9cbecc"
+  dependencies:
+    gap-front-event "^2.0.0"
+
+gap-front-web@^1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/gap-front-web/-/gap-front-web-1.1.1.tgz#717b6caf7ac4eb5e35c511ec46eeea52f547ada4"
   dependencies:
