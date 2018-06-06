@@ -9,20 +9,16 @@ export class Pop extends View {
         return this._mask;
     }
 
-    showPop() {
+    show() {
         if (!this._isPoped) {
-            this.mask.addPop(this.id, this.ctn);
+            this.mask.addPop(this.vid, this.ctn);
             this._isPoped = true;
         }
 
-        this.mask.showPop(this.id);
+        this.mask.showPop(this.vid);
     }
 
-    hidePop() {
-        this.mask.hidePop(this.id);
-    }
-
-    hideMask() {
-        this.mask.hideMask();
+    hide() {
+        this.mask.hidePop(this.vid);
     }
 }
