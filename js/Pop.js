@@ -20,5 +20,6 @@ export class Pop extends View {
 
     hide() {
         this.mask.hidePop(this.vid);
+        this.mask.hideMask();
     }
 }
