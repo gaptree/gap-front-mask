@@ -1,6 +1,6 @@
 import {createElem, oneElem} from 'gap-front-web';
 
-let MaskContainer = document.body;
+let MaskContainer;
 
 export const setMaskContainer = (ctn) => {
     if (ctn instanceof HTMLElement) {
@@ -19,6 +19,13 @@ export class Mask {
         this.popDict = {};
     }
 
+    getContainer() {
+        if (!MaskContainer) {
+            MaskContainer = document.body;
+        }
+        return MaskContainer;
+    }
+
     initMask() {
         const maskElem = createElem('div');
         const outerElem = createElem('div');
@@ -27,7 +34,7 @@ export class Mask {
         outerElem.addClass('gap-mask-outer');
         outerElem.hide();
         outerElem.appendChild(maskElem);
-        MaskContainer.appendChild(outerElem);
+        this.getContainer().appendChild(outerElem);
 
         this.maskElem = maskElem;
         this.outerElem = outerElem;
