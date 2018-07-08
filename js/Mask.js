@@ -2,13 +2,13 @@ import {createElem, oneElem} from 'gap-front-web';
 
 let MaskContainer = document.body;
 
-export class Mask {
-    static setContainer(ctn) {
-        if (ctn instanceof HTMLElement) {
-            MaskContainer = ctn;
-        }
+export const setMaskContainer = (ctn) => {
+    if (ctn instanceof HTMLElement) {
+        MaskContainer = ctn;
     }
+};
 
+export class Mask {
     constructor() {
         if (!oneElem('.gap-mask-outer')) {
             this.initMask();
