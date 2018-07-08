@@ -1,4 +1,5 @@
 node_modules
 *.bk
 yarn-error.log
+tags
 #**/*.lock

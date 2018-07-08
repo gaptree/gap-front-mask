@@ -1,6 +1,14 @@
 import {createElem, oneElem} from 'gap-front-web';
 
+let MaskContainer = document.body;
+
 export class Mask {
+    static setContainer(ctn) {
+        if (ctn instanceof HTMLElement) {
+            MaskContainer = ctn;
+        }
+    }
+
     constructor() {
         if (!oneElem('.gap-mask-outer')) {
             this.initMask();
@@ -19,7 +27,7 @@ export class Mask {
         outerElem.addClass('gap-mask-outer');
         outerElem.hide();
         outerElem.appendChild(maskElem);
-        document.body.appendChild(outerElem);
+        MaskContainer.appendChild(outerElem);
 
         this.maskElem = maskElem;
         this.outerElem = outerElem;
