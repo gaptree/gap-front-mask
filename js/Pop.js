@@ -4,6 +4,11 @@ import {Mask} from './Mask';
 export class Pop extends View {
     static get tag() { return 'div'; }
 
+    constructor(props = {}) {
+        super(props);
+        this._mask = this.props['mask'] || null;
+    }
+
     get mask() {
         this._mask = this._mask || new Mask();
         return this._mask;
@@ -16,6 +21,10 @@ export class Pop extends View {
         }
 
         this.mask.showPop(this.vid);
+    }
+
+    hidePop() {
+        this.mask.hidePop(this.vid);
     }
 
     hide() {
