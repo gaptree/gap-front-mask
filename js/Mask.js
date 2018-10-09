@@ -39,6 +39,10 @@ export class Mask {
         this.maskElem = maskElem;
         this.outerElem = outerElem;
     }
+    
+    hide() {
+        this.hideMask();
+    }
 
     hideMask() {
         // require https://daneden.github.io/animate.css/
