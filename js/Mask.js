@@ -87,6 +87,13 @@ export class Mask {
         }
     }
 
+    hideAllPop() {
+        for (const key in this.popDict) {
+            this.hidePop(key);
+        }
+    }
+
+
     showCurrentPop() {
         if (this._currentPop) {
             this.outerElem.show();
